@@ -12,6 +12,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="shortcut icon" type="image/jpg" href="img/buddy.png" />
     <!-- css -->
     <link rel="stylesheet" href="style.css" />
 
@@ -61,7 +62,14 @@
     <section class="jumbotron text-center">
       <img src="img/buddy.png" alt="buddy" width="200" />
       <h1 class="display-4">Hi, I am Imam!</h1>
-      <p class="lead">Data Analyst | Sofware Developer</p>
+      <p class="fw-lighter">
+        (Data Analyst | Sofware Developer)
+        <br />
+        <small class="fst-italic"
+          >Jogging/Reading Books/Sufring around the globe via Google</small
+        >
+      </p>
+
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#ffffff"
@@ -85,10 +93,9 @@
               sequi qui excepturi cupiditate!
             </p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 sr-only">
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Voluptatibus id doloribus quaerat culpa illo et!
+              delectus odit dolores perspiciatis sequi qui excepturi cupiditate!
             </p>
           </div>
         </div>
@@ -197,9 +204,12 @@
     </section>
     <!-- footer -->
     <footer class="text-center">
-      <p>
+      <p class="fw-lighter">
         Created with Bootstrap, by
         <a href="https://www.instagram.com/imamsisw/" target="_blank">Imam</a>
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
       </p>
     </footer>
     <!-- end footer -->
