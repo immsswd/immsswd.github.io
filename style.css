@@ -18,3 +18,13 @@ section {
 .custom-fs {
   font-size: 200%;
 }
+
+.quote {
+  padding: 4px 12px;
+  border-left: 1px solid rebeccapurple;
+  font-size: 12px;
+  background-color: azure;
+}
+.quote a {
+  text-decoration: none;
+}
