@@ -1,0 +1,30 @@
+/* body {
+  min-height: 3000px;
+} */
+.jumbotron {
+  /* padding: 2rem 1rem; */
+  padding-top: 6rem;
+  background-color: #e2edff;
+}
+
+#project {
+  background-color: #e2edff;
+}
+/* #a2d9ff */
+
+section {
+  padding-top: 5rem;
+}
+.custom-fs {
+  font-size: 200%;
+}
+
+.quote {
+  padding: 4px 12px;
+  border-left: 1px solid rebeccapurple;
+  font-size: 12px;
+  background-color: azure;
+}
+.quote a {
+  text-decoration: none;
+}
