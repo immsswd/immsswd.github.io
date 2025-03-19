@@ -3,13 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>immsswd File Explorer</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .header {
+        width: 100%;
+        background: #333;
+        color: white;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 20px;
+        padding: 80px 30px 30px;
+        max-width: 800px;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .folder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .folder:hover {
+        background: #f1f1f1;
+      }
+
+      .folder img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .folder span {
+        margin-top: 5px;
+        font-size: 14px;
+      }
+
+      .text-1 {
+        color: rgb(180, 177, 177);
+      }
+
+      .text-2 {
+        color: rgb(69, 68, 68);
+        font-weight: 400;
+      }
+
+      .text-3 {
+        color: rgb(26, 26, 26);
+        font-weight: 700;
+      }
+
+      /* Mobile: Change to list view */
+      @media (max-width: 768px) {
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 70px 20px 20px;
+        }
+
+        .folder {
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 10px 15px;
+          gap: 15px;
+          border-bottom: 1px solid #ddd;
+        }
+
+        .folder img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .folder span {
+          font-size: 16px;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="header">Explorer</div>
     <div class="container">
-        <h1> Hi, Welcome! 👋 </h1>
-        <p>See my personal blog & portfolio. 👀</p>
-        <a href="https://immsswd.github.io/portfolio/about/">Take me there! 🚀</a>
+      <div class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="imam-blog-portfolio" />
+        <span class="text-3">Imam Folder</span>
+      </div>
+      <div class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="home" />
+        <span class="text-1">etc</span>
+      </div>
+      <div class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="documents" />
+        <span class="text-1">sys</span>
+      </div>
+      <div class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="downloads" />
+        <span class="text-1">home</span>
+      </div>
+      <div class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="pictures" />
+        <span class="text-1">dev</span>
+      </div>
+      <div class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="videos" />
+        <span class="text-1">root</span>
+      </div>
+      <div class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="music" />
+        <span class="text-1">media</span>
+      </div>
+    </div>
   </body>
 </html>
