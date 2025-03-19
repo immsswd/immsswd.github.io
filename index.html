@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>immsswd File Explorer</title>
+    <title>Ubuntu File Explorer</title>
     <style>
       body {
         display: flex;
@@ -48,6 +48,8 @@
         padding: 10px;
         border-radius: 5px;
         transition: background 0.3s;
+        text-decoration: none; /* Remove underline from links */
+        color: inherit; /* Keep text color normal */
       }
 
       .folder:hover {
@@ -109,48 +111,48 @@
   <body>
     <div class="header">Explorer</div>
     <div class="container">
-      <div class="folder">
+      <a href="https://immsswd.github.io/portfolio/" class="folder">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="imam-blog-portfolio" />
-        <span class="text-3">Imam Folder</span>
-      </div>
-      <div class="folder">
+          alt="imam-folder" />
+        <span class="text-3">Imam Portfolio</span>
+      </a>
+      <a href="etc.html" class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="etc" />
+        <span class="text-1">etc</span>
+      </a>
+      <a href="sys.html" class="folder">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
+          alt="sys" />
+        <span class="text-1">sys</span>
+      </a>
+      <a href="home.html" class="folder">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="home" />
-        <span class="text-1">etc</span>
-      </div>
-      <div class="folder">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="documents" />
-        <span class="text-1">sys</span>
-      </div>
-      <div class="folder">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="downloads" />
         <span class="text-1">home</span>
-      </div>
-      <div class="folder">
+      </a>
+      <a href="dev.html" class="folder">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="pictures" />
+          alt="dev" />
         <span class="text-1">dev</span>
-      </div>
-      <div class="folder">
+      </a>
+      <a href="root.html" class="folder">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="videos" />
+          alt="root" />
         <span class="text-1">root</span>
-      </div>
-      <div class="folder">
+      </a>
+      <a href="media.html" class="folder">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="music" />
+          alt="media" />
         <span class="text-1">media</span>
-      </div>
+      </a>
     </div>
   </body>
 </html>
