@@ -48,8 +48,8 @@
         padding: 10px;
         border-radius: 5px;
         transition: background 0.3s;
-        text-decoration: none; /* Remove underline from links */
-        color: inherit; /* Keep text color normal */
+        text-decoration: none;
+        color: inherit;
       }
 
       .folder:hover {
@@ -78,6 +78,31 @@
       .text-3 {
         color: rgb(26, 26, 26);
         font-weight: 700;
+      }
+
+      /* LOCKED FOLDERS (Disabled Click) */
+      .locked {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+
+      /* Imam Portfolio Content (Hidden by Default) */
+      .content-list {
+        display: none;
+        width: 100%;
+        max-width: 600px;
+        text-align: left;
+        padding: 10px;
+      }
+
+      .content-list ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .content-list li {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
       }
 
       /* Mobile: Change to list view */
@@ -111,48 +136,72 @@
   <body>
     <div class="header">Explorer</div>
     <div class="container">
-      <a href="https://immsswd.github.io/portfolio/" class="folder">
+      <!-- Clickable "Imam Portfolio" Folder -->
+      <div class="folder" onclick="toggleContent()">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="imam-folder" />
-        <span class="text-3">Imam Portfolio</span>
-      </a>
-      <a href="#" class="folder">
+        <span class="text-2">Imam Portfolio</span>
+      </div>
+
+      <!-- Imam Portfolio Content (Hidden Initially) -->
+      <div class="content-list" id="contentList">
+        <ul>
+          <li><a href="https://immsswd.github.io/portfolio/about">About</a></li>
+          <li>
+            <a href="https://immsswd.github.io/portfolio/projects">Projects</a>
+          </li>
+          <li>
+            <a href="https://immsswd.github.io/portfolio/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Locked Folders -->
+      <div class="folder locked">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="etc" />
         <span class="text-1">etc</span>
-      </a>
-      <a href="#" class="folder">
+      </div>
+      <div class="folder locked">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="sys" />
         <span class="text-1">sys</span>
-      </a>
-      <a href="#" class="folder">
+      </div>
+      <div class="folder locked">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="home" />
         <span class="text-1">home</span>
-      </a>
-      <a href="#" class="folder">
+      </div>
+      <div class="folder locked">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="dev" />
         <span class="text-1">dev</span>
-      </a>
-      <a href="#" class="folder">
+      </div>
+      <div class="folder locked">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="root" />
         <span class="text-1">root</span>
-      </a>
-      <a href="#" class="folder">
+      </div>
+      <div class="folder locked">
         <img
           src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
           alt="media" />
         <span class="text-1">media</span>
-      </a>
+      </div>
     </div>
+
+    <script>
+      function toggleContent() {
+        var content = document.getElementById("contentList");
+        content.style.display =
+          content.style.display === "block" ? "none" : "block";
+      }
+    </script>
   </body>
 </html>
