@@ -1,206 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explorer</title>
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #ffffff;
-        text-align: center;
-      }
-
-      .header {
-        width: 100%;
-        background: #333;
-        color: white;
-        padding: 15px;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-      }
-
-      .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 20px;
-        padding: 80px 30px 30px;
-        max-width: 800px;
-        width: 100%;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .folder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        padding: 10px;
-        border-radius: 5px;
-        transition: background 0.3s;
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .folder:hover {
-        background: #f1f1f1;
-      }
-
-      .folder img {
-        width: 60px;
-        height: 60px;
-      }
-
-      .folder span {
-        margin-top: 5px;
-        font-size: 14px;
-      }
-
-      .text-1 {
-        color: rgb(180, 177, 177);
-      }
-
-      .text-2 {
-        color: rgb(69, 68, 68);
-        font-weight: 400;
-      }
-
-      .text-3 {
-        color: rgb(26, 26, 26);
-        font-weight: 700;
-      }
-
-      /* LOCKED FOLDERS (Disabled Click) */
-      .locked {
-        pointer-events: none;
-        opacity: 0.5;
-      }
-
-      /* Imam Portfolio Content (Hidden by Default) */
-      .content-list {
-        display: none;
-        width: 100%;
-        max-width: 600px;
-        text-align: left;
-        padding: 10px;
-      }
-
-      .content-list ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .content-list li {
-        padding: 8px;
-        border-bottom: 1px solid #ddd;
-      }
-
-      /* Mobile: Change to list view */
-      @media (max-width: 768px) {
-        .container {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          padding: 70px 20px 20px;
-        }
-
-        .folder {
-          flex-direction: row;
-          justify-content: flex-start;
-          padding: 10px 15px;
-          gap: 15px;
-          border-bottom: 1px solid #ddd;
-        }
-
-        .folder img {
-          width: 40px;
-          height: 40px;
-        }
-
-        .folder span {
-          font-size: 16px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="header">Explorer</div>
-    <div class="container">
-      <!-- Clickable "Imam Portfolio" Folder -->
-      <div class="folder" onclick="toggleContent()">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="imam-folder" />
-        <span class="text-2">Imam Portfolio</span>
-      </div>
+    <div class="app-shell">
+      <section class="finder-window">
+        <div class="finder-toolbar">
+          <div class="window-controls">
+            <span class="control red"></span>
+            <span class="control yellow"></span>
+            <span class="control green"></span>
+          </div>
+          <div class="toolbar-title">Explorer</div>
+        </div>
 
-      <!-- Imam Portfolio Content (Hidden Initially) -->
-      <div class="content-list" id="contentList">
-        <ul>
-          <li><a href="https://immsswd.github.io/portfolio/about">About</a></li>
-          <li>
-            <a href="https://immsswd.github.io/portfolio/">Blog & Portfolio</a>
-          </li>
-          <li>
-            <a href="https://immsswd.github.io/portfolio/contact">Contact</a>
-          </li>
-        </ul>
-      </div>
+        <div class="folder-grid">
+          <button
+            class="folder-item"
+            type="button"
+            onclick="togglePanel(this)"
+            aria-expanded="false"
+            aria-controls="detailsPanel">
+            <span class="folder-icon">📁</span>
+            <div>
+              <div class="folder-name">Imam Portfolio</div>
+              <div class="folder-meta">Open for quick links</div>
+            </div>
+          </button>
 
-      <!-- Locked Folders -->
-      <div class="folder locked">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="etc" />
-        <span class="text-1">etc</span>
-      </div>
-      <div class="folder locked">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="sys" />
-        <span class="text-1">sys</span>
-      </div>
-      <div class="folder locked">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="home" />
-        <span class="text-1">home</span>
-      </div>
-      <div class="folder locked">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="dev" />
-        <span class="text-1">dev</span>
-      </div>
-      <div class="folder locked">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="root" />
-        <span class="text-1">root</span>
-      </div>
-      <div class="folder locked">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/716/716784.png"
-          alt="media" />
-        <span class="text-1">media</span>
-      </div>
+          <div class="details-panel collapsed" id="detailsPanel">
+            <div class="panel-header">Quick links</div>
+            <ul class="panel-list">
+              <li>
+                <a href="https://immsswd.github.io/portfolio/about">About</a>
+              </li>
+              <li>
+                <a href="https://immsswd.github.io/portfolio/"
+                  >Blog &amp; Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="https://immsswd.github.io/portfolio/contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <article class="folder-item disabled">
+            <span class="folder-icon">📁</span>
+            <div>
+              <div class="folder-name">etc</div>
+              <div class="folder-meta">Locked folder</div>
+            </div>
+          </article>
+
+          <article class="folder-item disabled">
+            <span class="folder-icon">📁</span>
+            <div>
+              <div class="folder-name">sys</div>
+              <div class="folder-meta">Restricted access</div>
+            </div>
+          </article>
+
+          <article class="folder-item disabled">
+            <span class="folder-icon">📁</span>
+            <div>
+              <div class="folder-name">home</div>
+              <div class="folder-meta">Personal directory</div>
+            </div>
+          </article>
+
+          <article class="folder-item disabled">
+            <span class="folder-icon">📁</span>
+            <div>
+              <div class="folder-name">dev</div>
+              <div class="folder-meta">Development files</div>
+            </div>
+          </article>
+
+          <article class="folder-item disabled">
+            <span class="folder-icon">📁</span>
+            <div>
+              <div class="folder-name">root</div>
+              <div class="folder-meta">System root</div>
+            </div>
+          </article>
+
+          <article class="folder-item disabled">
+            <span class="folder-icon">📁</span>
+            <div>
+              <div class="folder-name">media</div>
+              <div class="folder-meta">Media archive</div>
+            </div>
+          </article>
+        </div>
+      </section>
     </div>
 
     <script>
-      function toggleContent() {
-        var content = document.getElementById("contentList");
-        content.style.display =
-          content.style.display === "block" ? "none" : "block";
+      function togglePanel(button) {
+        const panel = document.getElementById("detailsPanel");
+        const expanded = panel.classList.toggle("collapsed");
+        button.setAttribute("aria-expanded", String(!expanded));
       }
     </script>
   </body>
